@@ -79,6 +79,12 @@ app.get('/', function (req, res) {
   if (!db) {
     initDb(function(err){});
   }
+
+  console.log("Hostname: ", req.hostname);
+  console.log("Host: ", req.host);
+  console.log("'Host' header: ", req.headers.host);
+  console.log("Protocol: ", req.protocol);
+
   if (db) {
     var col = db.collection('counts');
     // Create a document with request IP and current time of request
